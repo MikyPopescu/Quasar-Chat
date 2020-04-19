@@ -1,0 +1,40 @@
+{
+  "users": {
+    "USERID01": {
+      "name": "Miky",
+      "email": "miky@test.com",
+      "online": true
+    },
+    "USERID02": {
+      "name": "Cosmin",
+      "email": "cosmin@test.com",
+      "online": true
+    }
+  },
+  "chats": {
+    "USERID01": {
+      "USERID02": {
+        "MESSAGEID1": {
+          "text": "Sal! Cf?",
+          "from": "them"
+        },
+        "MESSAGEID2": {
+          "text": "Bn, tu?",
+          "from": "me"
+        }
+      }
+    },
+    "USERID02": {
+      "USERID01": {
+        "MESSAGEID1": {
+          "text": "Sal! Cf?",
+          "from": "me"
+        },
+        "MESSAGEID2": {
+          "text": "Bn, tu?",
+          "from": "them"
+        }
+      }
+    }
+  }
+}

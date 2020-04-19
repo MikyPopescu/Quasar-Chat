@@ -4,7 +4,37 @@ const state = {};
 
 const mutations = {};
 
-const actions = {};
+const actions = {
+  registerUser({}, payload) {
+    //console.log("registerUser");
+    //console.log("payload: ", payload);
+    firebaseAuth
+      .createUserWithEmailAndPassword(payload.email, payload.password)
+      .then(response => {
+        console.log(response);
+        let userId = firebaseAuth.currentUser.uid;
+        //writing into firebase (set fb console rules to true)
+        firebaseDb.ref("users/" + userId).set({
+          name: payload.name,
+          email: payload.email,
+          online: true
+        });
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  },
+  loginUser({}, payload) {
+    firebaseAuth
+      .signInWithEmailAndPassword(payload.email, payload.password)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  }
+};
 
 const getters = {};
 
